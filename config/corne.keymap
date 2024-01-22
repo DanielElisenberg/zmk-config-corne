@@ -46,10 +46,10 @@
 // |      |     |     |     |     |     |   |  "  |  <  |  >  |  $  |  ~  |     |
 //                    |     |     |     |   | RET | BSP |     |
                         bindings = <
-   &kp trans &trans   &trans &trans   &trans   &trans   &kp LBKT  &kp LPAR  &kp RPAR &kp RBKT  &kp BSLH  &trans
-   &kp trans &trans   &trans &trans   &trans   &trans   &kp HASH  &kp LBRC  &kp RBRC &kp CARET &kp AT    &trans
-   &kp trans &trans   &trans &trans   &trans   &trans   &kp DQT   &kp LT    &kp GT   &kp DLLR  &kp TILDE &trans
-                             &trans   &trans   &trans   &kp RET   &kp BSP   &kp DEL
+   &trans &trans &trans &trans &trans &trans   &kp LBKT  &kp LPAR  &kp RPAR &kp RBKT  &kp BSLH  &trans
+   &trans &trans &trans &trans &trans &trans   &kp HASH  &kp LBRC  &kp RBRC &kp CARET &kp AT    &trans
+   &trans &trans &trans &trans &trans &trans   &kp DQT   &kp LT    &kp GT   &kp DLLR  &kp TILDE &trans
+                        &trans &trans &trans   &kp RET   &kp BSPC  &kp DEL
                         >;
                 };
 
