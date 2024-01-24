@@ -43,9 +43,23 @@
             tap-ms = <U_TAP_MS>;
             bindings
                 = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N8>
+                , <&macro_tap     &kp O>
                 , <&macro_release &kp LALT>;
-        }; 
+        };
+        my_dot: my_dot {
+            compatible = "zmk,behavior-macro";
+            label = "my dot";
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp DOT>, <&kp COLON>;
+        };
+        my_comma: my_comma {
+            compatible = "zmk,behavior-macro";
+            label = "my comma";
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+        };
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -67,7 +81,7 @@
             bindings = <
    &kp ESC   &kp Q       &kp W         &kp E        &kp R      &kp T       &kp Y     &kp U           &kp I        &kp O      &kp P        &no_aa
    &mo 4     &kp A       &hm LCTRL S   &hm LGUI D   &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K   &hm LALT L &no_oe       &no_ae
-   &kp LSHFT &kp Z       &kp X         &kp C        &kp V      &kp B       &kp N     &kp M           &kp COMMA    &kp DOT    &kp MINUS    &kp SQT
+   &kp LSHFT &kp Z       &kp X         &kp C        &kp V      &kp B       &kp N     &kp M           &my_comma    &my_dot    &kp MINUS    &kp SQT
                                        &kp LGUI     &lt 2 TAB  &kp SPACE   &lt 3 RET &lt 1 BACKSPACE &kp DEL
             >; 
         };
