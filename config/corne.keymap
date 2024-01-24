@@ -21,18 +21,7 @@
             tap-ms = <U_TAP_MS>;
             bindings
                 = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N9>
-                , <&macro_release &kp LALT>;
-        };
-        no_aa_shift: no_aa_shift {
-            compatible = "zmk,behavior-macro";
-            label = "no aa shift";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N7>
+                , <&macro_tap     &kp A>
                 , <&macro_release &kp LALT>;
         };
         no_ae: no_ae {
@@ -43,18 +32,7 @@
             tap-ms = <U_TAP_MS>;
             bindings
                 = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N0>
-                , <&macro_release &kp LALT>;
-        };
-        no_ae_shift: no_ae_shift {
-            compatible = "zmk,behavior-macro";
-            label = "no ae shift";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N8>
+                , <&macro_tap     &kp SQT>
                 , <&macro_release &kp LALT>;
         };
         no_oe: no_oe {
@@ -67,43 +45,11 @@
                 = <&macro_press   &kp LALT>
                 , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N8>
                 , <&macro_release &kp LALT>;
-        };
-        no_oe_shift: no_oe_shift {
-            compatible = "zmk,behavior-macro";
-            label = "no oe shift";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N1 &kp KP_N6>
-                , <&macro_release &kp LALT>;
-        };
-        no_aa_morph: no_aa_morph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "no aa morph";
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            bindings = <&no_aa>, <&no_aa_shift>;
-        };
-        no_ae_morph: no_ae_morph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "no ae morph";
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            bindings = <&no_ae>, <&no_ae_shift>;
-        };
-        no_oe_morph: no_oe_morph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "no oe morph";
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            bindings = <&no_oe>, <&no_oe_shift>;
-        };
+        }; 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -119,9 +65,9 @@
 // | SHFT  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  '  |
 //                     | GUI | LWR | SPC |   | ENT | RSE  | ALT |
             bindings = <
-   &kp ESC   &kp Q       &kp W         &kp E        &kp R      &kp T       &kp Y     &kp U           &kp I        &kp O      &kp P        &no_aa_morph
-   &mo 4     &kp A       &hm LCTRL S   &hm LGUI D   &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K   &hm LALT L &no_oe_morph &no_ae_morph
-   &kp LSHFT &kp Z       &kp X         &kp C        &kp V      &kp B       &kp N     &kp M           &kp COMMA    &kp DOT    &kp MINUS    &kp FSLH
+   &kp ESC   &kp Q       &kp W         &kp E        &kp R      &kp T       &kp Y     &kp U           &kp I        &kp O      &kp P        &no_aa
+   &mo 4     &kp A       &hm LCTRL S   &hm LGUI D   &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K   &hm LALT L &no_oe       &no_ae
+   &kp LSHFT &kp Z       &kp X         &kp C        &kp V      &kp B       &kp N     &kp M           &kp COMMA    &kp DOT    &kp MINUS    &kp SQT
                                        &kp LGUI     &lt 2 TAB  &kp SPACE   &lt 3 RET &lt 1 BACKSPACE &kp DEL
             >; 
         };
