@@ -15,7 +15,6 @@
     behaviors {
         no_aa: no_aa {
             compatible = "zmk,behavior-macro";
-            label = "no aa";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
@@ -26,7 +25,6 @@
         };
         no_ae: no_ae {
             compatible = "zmk,behavior-macro";
-            label = "no ae";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
@@ -37,7 +35,6 @@
         };
         no_oe: no_oe {
             compatible = "zmk,behavior-macro";
-            label = "no oe";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
@@ -47,15 +44,13 @@
                 , <&macro_release &kp LALT>;
         };
         my_dot: my_dot {
-            compatible = "zmk,behavior-macro";
-            label = "my dot";
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&kp DOT>, <&kp COLON>;
         };
         my_comma: my_comma {
-            compatible = "zmk,behavior-macro";
-            label = "my comma";
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&kp COMMA>, <&kp SEMI>;
