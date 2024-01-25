@@ -87,7 +87,7 @@
         };
         symbol_layer {
             bindings = <
-                ______ ______ ______ ______ ______ ______   &kp LBKT  &kp LPAR  &kp RPAR &kp RBKT  &kp BSLH  &GRAVE
+                ______ ______ ______ ______ ______ ______   &kp LBKT  &kp LPAR  &kp RPAR &kp RBKT  &kp BSLH  &kp GRAVE
                 ______ ______ ______ ______ ______ ______   &kp HASH  &kp LBRC  &kp RBRC &kp CARET &kp AT    ______
                 ______ ______ ______ ______ ______ ______   &kp DQT   &kp LT    &kp GT   &kp DLLR  &kp TILDE ______
                                      ______ ______ ______   &kp RET   &kp BSPC  &kp DEL
