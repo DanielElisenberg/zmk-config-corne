@@ -11,7 +11,7 @@
 #define U_TAP_MS 10
 #define U_WAIT_MS 10
 
-#define _____ &trans
+#define ______ &trans
 
 / {
     behaviors {
