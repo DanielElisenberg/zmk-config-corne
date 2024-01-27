@@ -133,18 +133,18 @@
         compatible = "zmk,keymap";
         mac_default_layer {
             bindings = <
-                &kp ESC            &kp Q &kp W       &kp E           &kp R            &kp T       &kp Y            &kp U                 &kp I      &kp O      &kp P      &no_aa_mac
-                &mo MEDIA          &kp A &hm LCTRL S &hm LGUI D      &hm LALT F       &kp G       &kp H            &hm LCTRL J           &hm LGUI K &hm LALT L &no_oe_mac &no_ae_mac
-                &to DEFAULT_LINUX  &kp Z &kp X       &kp C           &kp V            &kp B       &kp N            &kp M                 &my_comma  &my_dot    &kp MINUS  &kp SQT
-                                                            &hm LSHIFT LGUI &lt SYMBOL TAB   &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &hm LSHIFT DEL
+                &kp ESC           &kp Q &kp W       &kp E           &kp R            &kp T       &kp Y            &kp U                 &kp I      &kp O      &kp P      &no_aa_mac
+                &mo MEDIA         &kp A &hm LCTRL S &hm LGUI D      &hm LALT F       &kp G       &kp H            &hm LCTRL J           &hm LGUI K &hm LALT L &no_oe_mac &no_ae_mac
+                &to DEFAULT_LINUX &kp Z &kp X       &kp C           &kp V            &kp B       &kp N            &kp M                 &my_comma  &my_dot    &kp MINUS  &kp SQT
+                                                    &hm LSHIFT LGUI &lt SYMBOL TAB   &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &hm LSHIFT DEL
             >; 
         };
         linux_default_layer {
             bindings = <
-                &kp ESC         &kp Q &kp W       &kp E           &kp R      &kp T       &kp Y     &kp U           &kp I      &kp O      &kp P        &no_aa_linux
-                &mo MEDIA       &kp A &hm LCTRL S &hm LGUI D      &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K &hm LALT L &no_oe_linux &no_ae_linux
-                &to DEFAULT_MAC &kp Z &kp X       &kp C           &kp V      &kp B       &kp N     &kp M           &my_comma  &my_dot    &kp MINUS    &linux_qt
-                                                            &hm LSHIFT LGUI &lt 2 TAB  &kp SPACE   &lt 3 RET &lt 1 BACKSPACE &hm LSHIFT DEL
+                &kp ESC         &kp Q &kp W       &kp E           &kp R           &kp T       &kp Y            &kp U                 &kp I      &kp O      &kp P        &no_aa_linux
+                &mo MEDIA       &kp A &hm LCTRL S &hm LGUI D      &hm LALT F      &kp G       &kp H            &hm LCTRL J           &hm LGUI K &hm LALT L &no_oe_linux &no_ae_linux
+                &to DEFAULT_MAC &kp Z &kp X       &kp C           &kp V           &kp B       &kp N            &kp M                 &my_comma  &my_dot    &kp MINUS    &linux_qt
+                                                  &hm LSHIFT LGUI &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &hm LSHIFT DEL
             >; 
         };
         numeric_layer {
