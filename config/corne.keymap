@@ -13,9 +13,16 @@
 
 #define ______ &trans
 
+#define DEFAULT_MAC 0
+#define DEFAULT_LINUX 1
+#define NUMERIC 2
+#define SYMBOL 3
+#define FUNCTION 4
+#define MEDIA 5
+
 / {
     behaviors {
-        no_aa: no_aa {
+        no_aa_mac: no_aa_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -25,7 +32,7 @@
                 , <&macro_tap     &kp A>
                 , <&macro_release &kp LALT>;
         };
-        no_ae: no_ae {
+        no_ae_mac: no_ae_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -35,7 +42,7 @@
                 , <&macro_tap     &kp SQT>
                 , <&macro_release &kp LALT>;
         };
-        no_oe: no_oe {
+        no_oe_mac: no_oe_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -45,6 +52,37 @@
                 , <&macro_tap     &kp O>
                 , <&macro_release &kp LALT>;
         };
+        no_aa_linux: no_aa_linux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp W>
+                , <&macro_release &kp RALT>;
+        };
+        no_ae_linux: no_ae_linux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp Z>
+                , <&macro_release &kp RALT>;
+        };
+        no_oe_linux: no_oe_linux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp L>
+                , <&macro_release &kp RALT>;
+        };
+
         my_dot: my_dot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -56,6 +94,30 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&kp COMMA>, <&kp SEMI>;
+        };
+        linux_sqt: linux_sqt { 
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp SQT>
+                , <&macro_tap &kp SPACE>;
+        };
+        linux_dqt: linux_dqt { 
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp DQT>
+                , <&macro_tap &kp SPACE>;
+        };
+        linux_qt: linux_qt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&linux_sqt>, <&linux_dqt>;
         };
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -69,26 +131,34 @@
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+        mac_default_layer {
             bindings = <
-                &kp ESC   &kp Q &kp W       &kp E      &kp R      &kp T       &kp Y     &kp U           &kp I      &kp O      &kp P        &no_aa
-                &mo 4     &kp A &hm LCTRL S &hm LGUI D &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K &hm LALT L &no_oe       &no_ae
-                &kp LGUI  &kp Z &kp X       &kp C      &kp V      &kp B       &kp N     &kp M           &my_comma  &my_dot    &kp MINUS    &kp SQT
-                                            &kp LSHIFT &lt 2 TAB  &kp SPACE   &lt 3 RET &lt 1 BACKSPACE &kp DEL
+                &kp ESC                   &kp Q &kp W       &kp E           &kp R            &kp T       &kp Y            &kp U                 &kp I      &kp O      &kp P      &no_aa_mac
+                &mo MEDIA                 &kp A &hm LCTRL S &hm LGUI D      &hm LALT F       &kp G       &kp H            &hm LCTRL J           &hm LGUI K &hm LALT L &no_oe_mac &no_ae_mac
+                &tog LINUX_DEFAULT_LAYER  &kp Z &kp X       &kp C           &kp V            &kp B       &kp N            &kp M                 &my_comma  &my_dot    &kp MINUS  &kp SQT
+                                                            &hm LSHIFT LGUI &lt SYMBOL TAB   &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &hm LSHIFT DEL
+            >; 
+        };
+        linux_default_layer {
+            bindings = <
+                &kp ESC                   &kp Q &kp W       &kp E           &kp R      &kp T       &kp Y     &kp U           &kp I      &kp O      &kp P        &no_aa_linux
+                &mo MEDIA                 &kp A &hm LCTRL S &hm LGUI D      &hm LALT F &kp G       &kp H     &hm LCTRL J     &hm LGUI K &hm LALT L &no_oe_linux &no_ae_linux
+                &tog LINUX_DEFAULT_LAYER  &kp Z &kp X       &kp C           &kp V      &kp B       &kp N     &kp M           &my_comma  &my_dot    &kp MINUS    &linux_qt
+                                                            &hm LSHIFT LGUI &lt 2 TAB  &kp SPACE   &lt 3 RET &lt 1 BACKSPACE &hm LSHIFT DEL
             >; 
         };
         numeric_layer {
             bindings = <
                 &kp AMPS &kp FSLH  &kp N1 &kp N2 &kp N3  &kp MINUS  ______   ______         &kp UP         ______         ______ ______
                 &kp PIPE &kp STAR  &kp N4 &kp N5 &kp N6  &kp PLUS   ______   &hm LCTRL LEFT &hm LGUI DOWN  &hm LALT RIGHT ______ ______
-                &kp EXCL &kp QMARK &kp N7 &kp N8 &kp N9  &kp EQUAL  ______   ______         &my_comma      &my_dot        ______ ______
+                &kp EXCL &kp QMARK &kp N7 &kp N8 &kp N9  &kp EQUAL  ______   &kp UNDERSCORE &my_comma      &my_dot        ______ ______
                                           &kp N0 &kp TAB &kp SPACE  ______   ______         ______
             >;
         };
         symbol_layer {
             bindings = <
                 ______ ______ ______ ______ ______ ______   &kp LBKT  &kp LPAR  &kp RPAR &kp RBKT  &kp BSLH  &kp GRAVE
-                ______ ______ ______ ______ ______ ______   &kp HASH  &kp LBRC  &kp RBRC &kp CARET &kp AT    ______
+                ______ ______ ______ ______ ______ ______   &kp HASH  &kp LBRC  &kp RBRC &kp CARET &kp AT    &kp PERCENT
                 ______ ______ ______ ______ ______ ______   &kp DQT   &kp LT    &kp GT   &kp DLLR  &kp TILDE ______
                                      ______ ______ ______   &kp RET   &kp BSPC  &kp DEL
             >;
