@@ -165,10 +165,10 @@
         };
         function_layer {
             bindings = <
-                ______    ______ &kp F1 &kp F2 &kp F3 &kp F10   ______ ______    ______   ______   ______ ______
-                ______    ______ &kp F4 &kp F5 &kp F6 &kp F11   ______ &kp LCTRL &kp LGUI &kp LALT ______ ______
-                &kp LSHFT ______ &kp F7 &kp F8 &kp F9 &kp F12   ______ ______    ______   ______   ______ ______
-                                        ______ ______ ______    ______ ______    ______
+                ______    ______ &kp F1       &kp F2      &kp F3      &kp F10   ______ ______         &kp UP        ______          ______ ______
+                ______    ______ &hm LCTRL F4 &hm LGUI F5 &hm LALT F6 &kp F11   ______ &hm LCTRL LEFT &hm LGUI DOWN &hm LALT RIGHT  ______ ______
+                &kp LSHFT ______ &kp F7       &kp F8      &kp F9      &kp F12   ______ ______         ______        ______          ______ ______
+                                              &kp LSHIFT  ______      ______    ______ ______         &kp LSHIFT
             >;
         };
         media_layer {
