@@ -210,26 +210,26 @@
         
         gaming_default_layer {
             bindings = <
-                &kp ESC    &kp Q  &kp W   &kp E    &kp R                    &kp T                    ______ ______   &kp UP   ______    ______ ______
-                &kp SHIFT  &kp A  &kp S   &kp D    &kp F                    &kp G                    ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______ 
-                &kp LCTRL  &kp Z  &kp X   &kp C    &kp V                    &kp B                    ______ ______   ______   ______    ______ &layer_tap_dance
-                                          &kp TAB  &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE ______ ______   ______
+                &kp ESC     &kp Q  &kp W   &kp E    &kp R                    &kp T                    ______ ______   &kp UP   ______    ______ ______
+                &kp LSHIFT  &kp A  &kp S   &kp D    &kp F                    &kp G                    ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______ 
+                &kp LCTRL   &kp Z  &kp X   &kp C    &kp V                    &kp B                    ______ ______   ______   ______    ______ &layer_tap_dance
+                                          &kp TAB  &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______   ______
             >;
         };
         gaming_numeric_layer {
             bindings = <
-                &kp ESC    &kp N1  &kp N2 &kp N3 ______ ______ ______ ______ ______ ______ ______
-                &kp SHIFT  &kp N4  &kp N5 &kp N6 ______ ______ ______ ______ ______ ______ ______
-                &kp LCTRL  &kp N7  &kp N8 &kp N9 ______ ______ ______ ______ ______ ______ ______ 
-                                   ______ ______ ______ ______ ______ ______
+                &kp ESC     &kp N1  &kp N2 &kp N3 ______ ______ ______ ______ ______ ______ ______
+                &kp LSHIFT  &kp N4  &kp N5 &kp N6 ______ ______ ______ ______ ______ ______ ______
+                &kp LCTRL   &kp N7  &kp N8 &kp N9 ______ ______ ______ ______ ______ ______ ______ 
+                                    ______ ______ ______ ______ ______ ______
             >;
         };
         gaming_function_layer {
             bindings = <
-                &kp ESC    &kp F1  &kp F2 &kp F3   ______ ______ ______ ______ ______ ______ ______
-                &kp SHIFT  &kp F4  &kp F5 &kp F6   ______ ______ ______ ______ ______ ______ ______
-                &kp LCTRL  &kp F7  &kp F8 &kp F9   ______ ______ ______ ______ ______ ______ ______ 
-                                   ______ ______   ______ ______ ______ ______
+                &kp ESC     &kp F1  &kp F2 &kp F3 ______ ______ ______ ______ ______ ______ ______
+                &kp LSHIFT  &kp F4  &kp F5 &kp F6 ______ ______ ______ ______ ______ ______ ______
+                &kp LCTRL   &kp F7  &kp F8 &kp F9 ______ ______ ______ ______ ______ ______ ______ 
+                                    ______ ______ ______ ______ ______ ______
             >;
         };
     };
