@@ -147,30 +147,24 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        };
-        layer_tap_dance: layer_tap_dance {
-            compatible = "zmk,layer-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&to DEFAULT_MAC>, <&to DEFAULT_LINUX>, <&to DEFAULT_GAMING>;
-        };
+        }; 
     };
 
     keymap {
         compatible = "zmk,keymap";
         mac_default_layer {
             bindings = <
-                &kp ESC          &kp Q        &kp W       &kp E       &kp R           &kp T       &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
-                &mo MEDIA        &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
-                &layer_tap_dance &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B       &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
-                                                          &kp LGUI   &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
+                &kp ESC           &kp Q        &kp W       &kp E       &kp R           &kp T       &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
+                &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
+                &to DEFAULT_LINUX &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B       &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
+                                                           &kp LGUI    &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >; 
         };
         linux_default_layer {
             bindings = <
-                &kp ESC           &kp Q        &kp W       &kp E         &kp R           &kp T       &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
-                &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
-                &layer_tap_dance  &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B       &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
+                &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T       &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
+                &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
+                &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B       &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
                                                            &kp LGUI      &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &hm DEL
             >;
         };
@@ -212,7 +206,7 @@
             bindings = <
                 &kp ESC     &kp Q  &kp W   &kp E    &kp R                    &kp T                    ______ ______   &kp UP   ______    ______ ______
                 &kp LSHIFT  &kp A  &kp S   &kp D    &kp F                    &kp G                    ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______ 
-                &kp LCTRL   &kp Z  &kp X   &kp C    &kp V                    &kp B                    ______ ______   ______   ______    ______ &layer_tap_dance
+                &kp LCTRL   &kp Z  &kp X   &kp C    &kp V                    &kp B                    ______ ______   ______   ______    ______ &to DEFAULT_MAC
                                           &kp TAB  &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______   ______
             >;
         };
