@@ -179,7 +179,7 @@
             bindings = <
                 &kp AMPS &kp FSLH         &kp N1        &kp N2      &kp N3      &kp MINUS ______   ______        &kp UP         ______          ______           ______
                 &kp PIPE &kp STAR         &hm LCTRL N4  &hm LGUI N5 &hm LALT N6 &kp PLUS  ______   &hm LALT LEFT &hm LGUI DOWN  &hm LCTRL RIGHT ______           ______
-                &kp EXCL &hm LSHIFT QMARK &kp N7        &kp N8      &kp N9      &kp EQUAL ______   ______        &my_comma      &my_dot         &hm LSHIFT MINUS ______
+                &kp EXCL &hm LSHIFT QMARK &kp N7        &kp N8      &kp N9      &kp EQUAL ______   ______        &comma_mod     &dot_mod        &hm LSHIFT MINUS ______
                                                         &kp N0      &kp TAB     &kp SPACE ______   ______        ______
             >;
         };
