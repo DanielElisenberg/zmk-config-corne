@@ -7,6 +7,11 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/mouse.h>
+
+
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #define U_TAP_MS 10
 #define U_WAIT_MS 10
@@ -19,9 +24,31 @@
 #define SYMBOL 3
 #define FUNCTION 4
 #define MEDIA 5
-#define DEFAULT_GAMING 6
-#define GAMING_NUMERIC 7
-#define GAMING_FUNCTION 8
+#define MOUSE 6
+#define DEFAULT_GAMING 7
+#define GAMING_NUMERIC 8
+#define GAMING_FUNCTION 9
+
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <500>;    // 40
+  delay-ms = <0>;                   // 0
+};
+
+&msc {
+  acceleration-exponent = <1>;      // 0
+  time-to-max-speed-ms = <40>;      // 500
+  delay-ms = <0>;                   // 10
+};
+
+#define U_MS_U &mmv MOVE_UP
+#define U_MS_D &mmv MOVE_DOWN
+#define U_MS_L &mmv MOVE_LEFT
+#define U_MS_R &mmv MOVE_RIGHT
+#define U_WH_U &msc SCRL_UP
+#define U_WH_D &msc SCRL_DOWN
+#define U_WH_L &msc SCRL_LEFT
+#define U_WH_R &msc SCRL_RIGHT
 
 / {
     behaviors {
@@ -154,18 +181,18 @@
         compatible = "zmk,keymap";
         mac_default_layer {
             bindings = <
-                &kp ESC           &kp Q        &kp W       &kp E       &kp R           &kp T       &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
-                &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
-                &to DEFAULT_LINUX &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B       &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
-                                                           &kp LGUI    &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
+                &kp ESC           &kp Q        &kp W       &kp E       &kp R           &kp T             &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
+                &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
+                &to DEFAULT_LINUX &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B             &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
+                                                           &kp LGUI    &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >; 
         };
         linux_default_layer {
             bindings = <
-                &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T       &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
-                &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G       &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
-                &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B       &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
-                                                            &kp LGUI      &lt SYMBOL TAB  &kp SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
+                &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T             &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
+                &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
+                &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B             &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
+                                                            &kp LGUI      &lt SYMBOL TAB  &kp MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >;
         };
         
@@ -201,6 +228,15 @@
                                                  ______       ______       ______       ______ ______   ______
             >;
         };
+        mouse_layer {
+            bindings = <
+                ______ ______ ______ ______ ______ ______   ______    ______     U_MS_U ______ ______ ______
+                ______ ______ ______ ______ ______ ______   ______    U_MS_L     U_MS_D U_MS_R ______ ______
+                ______ ______ ______ ______ ______ ______   ______    ______     ______ ______ ______ ______
+                                     ______ ______ ______   &mkp LCLK &mkp RCLK  ______
+            >;
+        }
+
         
         gaming_default_layer {
             bindings = <
