@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
@@ -26,6 +25,9 @@
 #define FUNCTION 4
 #define MEDIA 5
 #define MOUSE 6
+#define DEFAULT_GAMING 7
+#define GAMING_NUMERIC 8
+#define GAMING_FUNCTION 9
 
 &mmv {
   acceleration-exponent = <1>;      // 1
@@ -185,15 +187,16 @@
                                                            &kp LGUI    &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >; 
         };
+
         linux_default_layer {
             bindings = <
                 &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T             &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
                 &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
-                &to DEFAULT_MAC    &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B             &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
+                &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B             &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
                                                             &kp LGUI      &lt SYMBOL TAB  &kp MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >;
         };
-        
+
         numeric_layer {
             bindings = <
                 &kp AMPS &kp FSLH         &kp N1        &kp N2      &kp N3      &kp MINUS ______   ______        &kp UP         ______          ______           ______
@@ -202,6 +205,7 @@
                                                         &kp N0      &kp TAB     &kp SPACE ______   ______        ______
             >;
         };
+
         symbol_layer {
             bindings = <
                 ______ ______ ______ ______ ______ ______   &kp LBKT   &kp LPAR  &kp RPAR &kp RBKT     &kp BSLH     &kp GRAVE
@@ -210,6 +214,7 @@
                                      ______ ______ ______   &kp RET    &kp BSPC  &kp DEL
             >;
         };
+
         function_layer {
             bindings = <
                 ______     ______     &kp F1       &kp F2      &kp F3      &kp F10   ______ ______         &kp UP        ______          ______     ______
@@ -218,6 +223,7 @@
                                                    &kp LSHIFT  ______      ______    ______ ______         ______
             >;
         };
+
         media_layer {
             bindings = <
                 ______ &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP ______       ______       ______ ______   &kp UP   ______    ______ &bt BT_CLR
@@ -226,12 +232,40 @@
                                                  ______       ______       ______       ______ ______   ______
             >;
         };
+
         mouse_layer {
             bindings = <
                 ______ ______ ______ ______ ______ ______   ______    ______     U_MS_U ______ ______ ______
                 ______ ______ ______ ______ ______ ______   ______    U_MS_L     U_MS_D U_MS_R ______ ______
                 ______ ______ ______ ______ ______ ______   ______    ______     ______ ______ ______ ______
                                      ______ ______ ______   &mkp LCLK &mkp RCLK  ______
+            >;
+        };
+        
+        gaming_default_layer {
+            bindings = <
+                &kp ESC     &kp Q  &kp W   &kp E    &kp R                    &kp T                     ______ ______   &kp UP   ______    ______ ______
+                &kp LSHIFT  &kp A  &kp S   &kp D    &kp F                    &kp G                     ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______ 
+                &kp LCTRL   &kp Z  &kp X   &kp C    &kp V                    &kp B                     ______ ______   ______   ______    ______ &to DEFAULT_MAC
+                                          &kp TAB   &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______   ______
+            >;
+        };
+
+        gaming_numeric_layer {
+            bindings = <
+                &kp ESC     ______ &kp N1  &kp N2 &kp N3 ______ ______ ______ ______ ______ ______ ______
+                &kp LSHIFT  ______ &kp N4  &kp N5 &kp N6 ______ ______ ______ ______ ______ ______ ______
+                &kp LCTRL   ______ &kp N7  &kp N8 &kp N9 ______ ______ ______ ______ ______ ______ ______
+                                           ______ ______ ______ ______ ______ ______
+            >;
+        };
+        
+        gaming_function_layer {
+            bindings = <
+                &kp ESC     ______ &kp F1  &kp F2 &kp F3 ______ ______ ______ ______ ______ ______ ______
+                &kp LSHIFT  ______ &kp F4  &kp F5 &kp F6 ______ ______ ______ ______ ______ ______ ______
+                &kp LCTRL   ______ &kp F7  &kp F8 &kp F9 ______ ______ ______ ______ ______ ______ ______ 
+                                           ______ ______ ______ ______ ______ ______
             >;
         };
     };
