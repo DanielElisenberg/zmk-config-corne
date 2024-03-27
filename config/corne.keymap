@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #include <behaviors/mouse_key_press.dtsi>
 #include <behaviors/mouse_move.dtsi>
@@ -153,7 +154,7 @@
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <225>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -213,10 +214,10 @@
         };
         mouse_layer {
             bindings = <
-                ______ ______ ______ ______ ______ ______  &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______ ______
-                ______ ______ ______ ______ ______ ______  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______ ______
-                ______ ______ ______ ______ ______ ______  ______         ______         ______          ______ ______ ______
-                                     ______ ______ ______  &mkp LCLK      &mkp RCLK      &mkp MCLK
+                ______ ______ ______ ______ ______ ______  ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
+                ______ ______ ______ ______ ______ ______  ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
+                ______ ______ ______ ______ ______ ______  ______    ______         ______         ______          ______ ______
+                                     ______ ______ ______  &mkp LCLK &mkp RCLK      &mkp MCLK
             >;
         }; 
         gaming_default_layer {
