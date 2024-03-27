@@ -30,7 +30,7 @@
 #define GAMING_FUNCTION 9
 
 &mmv {
-   time-to-max-speed-ms = <680>;
+   time-to-max-speed-ms = <450>;
    acceleration-exponent=<2>;
 };
 
@@ -168,7 +168,7 @@
                 &kp ESC           &kp Q        &kp W       &kp E       &kp R           &kp T             &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
                 &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
                 &to DEFAULT_LINUX &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B             &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
-                                                           &kp LGUI    &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
+                                                           &kp ESC     &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >; 
         };
         linux_default_layer {
@@ -176,7 +176,7 @@
                 &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T             &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
                 &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
                 &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B             &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
-                                                            &kp LGUI      &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
+                                                            &kp ESC      &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
             >;
         };
         
