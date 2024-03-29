@@ -22,13 +22,13 @@
 #define DEFAULT_LINUX 1
 #define MOUSE 2
 #define SYMBOL 3
-#define NAVIGATION 3
-#define FUNCTION 4
-#define NUMERIC 5
-#define SYSTEM 6
-#define DEFAULT_GAMING 7
-#define GAMING_NUMERIC 8
-#define GAMING_FUNCTION 9
+#define NAVIGATION 4
+#define FUNCTION 5
+#define NUMERIC 6
+#define SYSTEM 7
+#define DEFAULT_GAMING 8
+#define GAMING_NUMERIC 9
+#define GAMING_FUNCTION 10
 
 &mmv {
    time-to-max-speed-ms = <450>;
@@ -214,10 +214,10 @@
         compatible = "zmk,keymap";
         mac_default_layer {
             bindings = <
-                ______  &kp Q         &kp W       &e_ae_mac_mod &kp R           &kp T           &kp Y                 &kp U                 &kp I                  &o_oe_mac_mod        &kp P            ______ 
-                ______  &a_aa_mac_mod &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G           &kp H                 &hm LALT J            &hm LGUI K             &hm LCTRL L          &qt_mod          ______
-                ______  &hm LSHIFT Z  &kp X       &kp C         &kp V           &kp B           &kp N                 &kp M                 &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
-                                                                &lt MOUSE ESC   &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET      &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
+                ______  &kp Q         &kp W       &e_ae_mac_mod &kp R           &kp T                 &kp Y                 &kp U                 &kp I                  &o_oe_mac_mod        &kp P            ______ 
+                ______  &a_aa_mac_mod &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H                 &hm LALT J            &hm LGUI K             &hm LCTRL L          &qt_mod          ______
+                ______  &hm LSHIFT Z  &kp X       &kp C         &kp V           &kp B                 &kp N                 &kp M                 &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
+                                                  &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET      &lt NUMERIC BACKSPACE &lt SYSTEM DEL
             >; 
         };
         linux_default_layer {
