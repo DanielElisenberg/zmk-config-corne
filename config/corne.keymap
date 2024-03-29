@@ -230,10 +230,10 @@
         };
         mouse_layer {
             bindings = <
-                ______ ______    ______ ______ ______ ______  ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
-                ______ ______    &kp LCTRL &kp LGUI  &kp LALT ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
-                ______ &kp SHIFT ______ ______ ______ ______  ______    ______         ______         ______          ______ ______
-                                        ______ ______ ______  &mkp LCLK &mkp RCLK      &mkp MCLK
+                ______ ______     ______ ______ ______ ______  ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
+                ______ ______     &kp LCTRL &kp LGUI  &kp LALT ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
+                ______ &kp LSHIFT ______ ______ ______ ______  ______    ______         ______         ______          ______ ______
+                                         ______ ______ ______  &mkp LCLK &mkp RCLK      &mkp MCLK
             >;
         };
         symbol_layer {
