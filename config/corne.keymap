@@ -240,7 +240,7 @@
             bindings = <
                 ______ ______ ______ ______ ______ ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
                 ______ ______ ______ ______ ______ ______   &kp DLLR     &kp LBKT &kp RBKT &kp AT    &kp UNDER    ______   
-                ______ ______ ______ ______ ______ ______   &kp AMPR     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
+                ______ ______ ______ ______ ______ ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
                                      ______ ______ ______   &kp LBRC     &kp RBRC &kp PIPE
             >;
         };
