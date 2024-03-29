@@ -272,7 +272,7 @@
             bindings = <
                 ______ &kp C_VOL_UP &kp BT_SEL 0 &kp BT_SEL 1 &kp BT_SEL 2 &to DEFAULT_MAC    ______ ______ ______ ______ ______ ______
                 ______ &kp C_VOL_DN &kp BT_SEL 3 &kp BT_SEL 4 ______       &to DEFAULT_LINUX  ______ ______ ______ ______ ______ ______
-                ______ &kp C_MUTE   &kp C_REV    &kp C_FWD    ______       &to DEFAULT_GAMING ______ ______ ______ ______ ______ ______
+                ______ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   ______       &to DEFAULT_GAMING ______ ______ ______ ______ ______ ______
                                                  &kp C_PLAY   &kp C_STOP   &kp C_PAUSE        ______ ______ ______
             >;
         }; 
