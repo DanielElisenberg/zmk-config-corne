@@ -121,7 +121,7 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
             bindings = <&dot_mod>, <&kp EXCLAMATION>;
-        }
+        };
         sqt_macro: sqt_macro { 
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
