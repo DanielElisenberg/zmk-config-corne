@@ -180,7 +180,7 @@
         symbol_layer {
             bindings = <
                 ______ ______ ______ ______ ______ ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
-                ______ ______ ______ ______ ______ ______   &kp under    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
+                ______ ______ ______ ______ ______ ______   &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
                 ______ ______ ______ ______ ______ ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
                                      ______ ______ ______   &kp LBRC     &kp RBRC &kp PIPE
             >;
