@@ -108,7 +108,7 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_pause_for_release &kp LALT>
+                = <&macro_pause_for_release>
                 , <&macro_press   &kp LALT>
                 , <&macro_tap     &kp A>
                 , <&macro_release &kp LALT>;
@@ -119,7 +119,7 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_pause_for_release &kp LALT>
+                = <&macro_pause_for_release>
                 , <&macro_press   &kp LALT>
                 , <&macro_tap     &kp SQT>
                 , <&macro_release &kp LALT>;
@@ -130,7 +130,7 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_pause_for_release &kp LALT>
+                = <&macro_pause_for_release>
                 , <&macro_press   &kp LALT>
                 , <&macro_tap     &kp O>
                 , <&macro_release &kp LALT>;
