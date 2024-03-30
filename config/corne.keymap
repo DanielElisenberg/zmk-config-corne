@@ -108,8 +108,10 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap   &kp A>;
+                = <&macro_release &kp LALT>
+                , <&macro_press   &kp LALT>
+                , <&macro_tap     &kp A>
+                , <&macro_release &kp LALT>;
         };
         no_ae: no_ae {
             compatible = "zmk,behavior-macro";
@@ -117,8 +119,10 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap   &kp SQT>;
+                = <&macro_release &kp RALT>
+                , <&macro_press   &kp RALT>
+                , <&macro_tap     &kp SQT>
+                , <&macro_release &kp RALT>;
         };
         no_oe: no_oe {
             compatible = "zmk,behavior-macro";
@@ -126,9 +130,11 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap   &kp O>;
-        };
+                = <&macro_release &kp RALT>
+                , <&macro_press   &kp RALT>
+                , <&macro_tap     &kp O>
+                , <&macro_release &kp RALT>;
+            };
         A_AA: A_AA {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
