@@ -118,9 +118,9 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_press   &kp LALT>
+                = <&macro_press   &kp RALT>
                 , <&macro_tap     &kp SQT>
-                , <&macro_release &kp LALT>;
+                , <&macro_release &kp RALT>;
         };
         no_oe: no_oe {
             compatible = "zmk,behavior-macro";
@@ -128,10 +128,9 @@
             wait-ms = <U_WAIT_MS>;
             tap-ms = <U_TAP_MS>;
             bindings
-                = <&macro_release &kp LALT>
-                , <&macro_press   &kp LALT>
+                = <&macro_press   &kp RALT>
                 , <&macro_tap     &kp O>
-                , <&macro_release &kp LALT>;
+                , <&macro_release &kp RALT>;
             };
         A_AA: A_AA {
             compatible = "zmk,behavior-mod-morph";
@@ -142,7 +141,7 @@
         E_AE: E_AE {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LATL)>;
             bindings = <&kp E>, <&no_ae>;
         };
         O_OE: O_OE {
@@ -164,9 +163,9 @@
         compatible = "zmk,keymap"; 
         default_layer {
             bindings = <
-                &no_aa  &kp Q        &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE      &kp P            ______ 
-                &no_ae  &A_AA        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &qt_mod          ______
-                &no_oe  &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
+                ______  &kp Q        &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P            ______ 
+                ______  &A_AA        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &qt_mod          ______
+                ______  &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
                                                  &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
         };
