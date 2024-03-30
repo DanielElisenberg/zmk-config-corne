@@ -102,23 +102,53 @@
                 = <&macro_tap &kp TILDE>
                 , <&macro_tap &kp SPACE>;
         };
+        no_aa: no_aa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_release &kp LALT>
+                , <&macro_press   &kp LALT>
+                , <&macro_tap     &kp A>;
+        };
+        no_ae: no_ae {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_release &kp LALT>
+                , <&macro_press   &kp LALT>
+                , <&macro_tap     &kp SQT>;
+        };
+        no_oe: no_oe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_release &kp LALT>
+                , <&macro_press   &kp LALT>
+                , <&macro_tap     &kp O>;
+        };
         A_AA: A_AA {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
-            bindings = <&kp A>, <&kp A>;
+            bindings = <&kp A>, <&no_aa>;
         };
         E_AE: E_AE {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
-            bindings = <&kp E>, <&kp SQT>;
+            bindings = <&kp E>, <&no_ae>;
         };
         O_OE: O_OE {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
-            bindings = <&kp O>, <&kp O>;
+            bindings = <&kp O>, <&no_oe>;
         }; 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -150,7 +180,7 @@
         symbol_layer {
             bindings = <
                 ______ ______ ______ ______ ______ ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
-                ______ ______ ______ ______ ______ ______   &kp DLLR     &kp LBKT &kp RBKT &kp AT    &kp UNDER    ______   
+                ______ ______ ______ ______ ______ ______   &kp under    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
                 ______ ______ ______ ______ ______ ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
                                      ______ ______ ______   &kp LBRC     &kp RBRC &kp PIPE
             >;
