@@ -141,7 +141,7 @@
         E_AE: E_AE {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
+            mods = <(MOD_LCTRL)>;
             bindings = <&kp E>, <&no_ae>;
         };
         O_OE: O_OE {
