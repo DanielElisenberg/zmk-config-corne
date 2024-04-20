@@ -172,7 +172,7 @@
                 __  &kp Q  &kp W  &E_AE  &kp R  &kp T  &kp Y  &kp U  &kp I &O_OE  &kp P     __ 
                 __  &A_AA  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K &kp L  &qtm      __
                 __  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &cqm  &dem   &kp MINUS __
-                                  &t1    &t2    &t3    &t4    &t5    &t6
+                                  t1     t2     t3     t4     t5     t6
             >;
         };
         left_hmr_layer {
