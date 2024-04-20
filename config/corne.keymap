@@ -165,7 +165,7 @@
           quick-tap-ms = <0>;
           flavor = "hold-preferred";
           bindings = <&kp>, <&mo>;
-        }
+        };
     };
     keymap {
         compatible = "zmk,keymap"; 
