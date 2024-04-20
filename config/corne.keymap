@@ -164,7 +164,7 @@
           tapping-term-ms = <200>;
           quick-tap-ms = <0>;
           flavor = "hold-preferred";
-          bindings = <&kp>, <&mo>;
+          bindings = <&mo>, <&kp>;
         };
     };
     keymap {
