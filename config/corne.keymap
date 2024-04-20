@@ -157,7 +157,15 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        }; 
+        };
+        lthp: layer_tap_hold_preferred {
+          compatible = "zmk,behavior-hold-tap";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>;
+          quick-tap-ms = <0>;
+          flavor = "hold-preferred";
+          bindings = <&kp>, <&mo>;
+        }
     };
     keymap {
         compatible = "zmk,keymap"; 
@@ -166,7 +174,7 @@
                 __  &kp Q        &kp W  &E_AE &kp R &kp T &kp Y            &kp U            &kp I                &O_OE     &kp P    __ 
                 __  &A_AA        &kp S  &kp D &kp F &kp G &kp H            &kp J            &kp K                &kp L     &qt_mod  __
                 __  &kp Z &kp X  &kp C  &kp V &kp B &kp N &kp M            &comma_qmark_mod &dot_exclamation_mod &kp MINUS __
-                                     &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
+                                     &lt MOUSE ESC &lthp SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lthp NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
         };
         mouse_layer {
