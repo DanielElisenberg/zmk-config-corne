@@ -225,8 +225,8 @@
         };
         system_layer {
             bindings = <
-                __ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to DEFAULT         __ __ __ __ __ __
-                __ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &to DEFAULT_GAMING  __ __ __ __ __ __
+                __ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 __                  __ __ __ __ __ __
+                __ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   __                  __ __ __ __ __ __
                 __ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   __           __                  __ __ __ __ __ __
                                              &kp C_PLAY   &kp C_STOP   &kp C_PAUSE         __ __ __
             >;
