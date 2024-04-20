@@ -193,10 +193,10 @@
         };
         symbol_layer {
             bindings = <
-                __ __          __         __        __        __  &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     __ 
-                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR     __   
-                __ __          __         __        __        __  &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro __
-                                          __        __        __  &kp LBRC     &kp RBRC &kp PIPE
+                __ __          __         __        __        __  &cam       &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     __ 
+                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp UNDER  &kp LBKT &kp RBKT &kp AT    &kp DLLR     __   
+                __ __          __         __        __        __  &kp AMPS   &kp LT   &kp GT   &kp HASH  &tilde_macro __
+                                          __        __        __  &kp LBRC   &kp RBRC &kp PIPE
             >;
         };
         navigation_layer {
