@@ -18,13 +18,13 @@
 
 #define ______ &trans
 
-#define DEFAULT_MAC 0
-#define DEFAULT_LINUX 1
-#define NUMERIC 2
-#define SYMBOL 3
+#define DEFAULT 0
+#define MOUSE 1
+#define SYMBOL 2
+#define NAVIGATION 3
 #define FUNCTION 4
-#define MEDIA 5
-#define MOUSE 6
+#define NUMERIC 5
+#define SYSTEM 6
 #define DEFAULT_GAMING 7
 #define GAMING_NUMERIC 8
 #define GAMING_FUNCTION 9
@@ -36,67 +36,6 @@
 
 / {
     behaviors {
-        no_aa_mac: no_aa_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp A>
-                , <&macro_release &kp LALT>;
-        };
-        no_ae_mac: no_ae_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp SQT>
-                , <&macro_release &kp LALT>;
-        };
-        no_oe_mac: no_oe_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp O>
-                , <&macro_release &kp LALT>;
-        };
-        no_aa_linux: no_aa_linux {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp RALT>
-                , <&macro_tap     &kp W>
-                , <&macro_release &kp RALT>;
-        };
-        no_ae_linux: no_ae_linux {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp RALT>
-                , <&macro_tap     &kp Z>
-                , <&macro_release &kp RALT>;
-        };
-        no_oe_linux: no_oe_linux {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_press   &kp RALT>
-                , <&macro_tap     &kp L>
-                , <&macro_release &kp RALT>;
-        };
-
         dot_mod: dot_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -108,6 +47,18 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&kp COMMA>, <&kp SEMI>;
+        };
+        comma_qmark_mod: comma_alt_mod {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            bindings = <&comma_mod>, <&kp QMARK>;
+        };
+        dot_exclamation_mod: dot_exclamation_mod {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            bindings = <&dot_mod>, <&kp EXCLAMATION>;
         };
         sqt_macro: sqt_macro { 
             compatible = "zmk,behavior-macro";
@@ -151,6 +102,54 @@
                 = <&macro_tap &kp TILDE>
                 , <&macro_tap &kp SPACE>;
         };
+        no_aa: no_aa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp A>
+                , <&macro_release &kp RALT>;
+        };
+        no_ae: no_ae {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp SQT>
+                , <&macro_release &kp RALT>;
+        };
+        no_oe: no_oe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_press   &kp RALT>
+                , <&macro_tap     &kp O>
+                , <&macro_release &kp RALT>;
+            };
+        A_AA: A_AA {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&kp A>, <&no_aa>;
+        };
+        E_AE: E_AE {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&kp E>, <&no_ae>;
+        };
+        O_OE: O_OE {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&kp O>, <&no_oe>;
+        }; 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -160,88 +159,86 @@
             bindings = <&kp>, <&kp>;
         }; 
     };
-
     keymap {
-        compatible = "zmk,keymap";
-        mac_default_layer {
+        compatible = "zmk,keymap"; 
+        default_layer {
             bindings = <
-                &kp ESC           &kp Q        &kp W       &kp E       &kp R           &kp T             &kp Y            &kp U                 &kp I      &kp O       &kp P             &no_aa_mac
-                &mo MEDIA         &kp A        &hm LCTRL S &hm LGUI D  &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K &hm LCTRL L &no_oe_mac        &no_ae_mac
-                &to DEFAULT_LINUX &hm LSHIFT Z &kp X       &kp C       &kp V           &kp B             &kp N            &kp M                 &comma_mod &dot_mod    &hm LSHIFT MINUS  &qt_mod
-                                                           &kp ESC     &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
-            >; 
-        };
-        linux_default_layer {
-            bindings = <
-                &kp ESC            &kp Q        &kp W       &kp E         &kp R           &kp T             &kp Y            &kp U                 &kp I       &kp O       &kp P            &no_aa_linux
-                &mo MEDIA          &kp A        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G             &kp H            &hm LALT J            &hm LGUI K  &hm LCTRL L &no_oe_linux     &no_ae_linux
-                &to DEFAULT_GAMING &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B             &kp N            &kp M                 &comma_mod  &dot_mod    &hm LSHIFT MINUS &qt_mod
-                                                            &kp ESC      &lt SYMBOL TAB  &lt MOUSE SPACE   &lt FUNCTION RET &lt NUMERIC BACKSPACE &kp DEL
-            >;
-        };
-        
-        numeric_layer {
-            bindings = <
-                &kp AMPS &kp FSLH         &kp N1        &kp N2      &kp N3      &kp MINUS ______   ______        &kp UP         ______          ______           ______
-                &kp PIPE &kp STAR         &hm LCTRL N4  &hm LGUI N5 &hm LALT N6 &kp PLUS  ______   &hm LALT LEFT &hm LGUI DOWN  &hm LCTRL RIGHT ______           ______
-                &kp EXCL &hm LSHIFT QMARK &kp N7        &kp N8      &kp N9      &kp EQUAL ______   ______        &comma_mod     &dot_mod        &hm LSHIFT MINUS ______
-                                                        &kp N0      &kp TAB     &kp SPACE ______   ______        ______
-            >;
-        };
-        symbol_layer {
-            bindings = <
-                ______ ______ ______ ______ ______ ______   &kp LBKT   &kp LPAR  &kp RPAR &kp RBKT     &kp BSLH     &kp GRAVE
-                ______ ______ ______ ______ ______ ______   &kp HASH   &kp LBRC  &kp RBRC &caret_macro &kp AT       &kp PERCENT
-                ______ ______ ______ ______ ______ ______   &dqt_macro &kp LT    &kp GT   &kp DLLR     &tilde_macro ______
-                                     ______ ______ ______   &kp RET    &kp BSPC  &kp DEL
-            >;
-        };
-        function_layer {
-            bindings = <
-                ______     ______     &kp F1       &kp F2      &kp F3      &kp F10   ______ ______         &kp UP        ______          ______     ______
-                ______     ______     &hm LCTRL F4 &hm LGUI F5 &hm LALT F6 &kp F11   ______ &hm LALT LEFT  &hm LGUI DOWN &hm LCTRL RIGHT ______     ______
-                ______     &kp LSHIFT &kp F7       &kp F8      &kp F9      &kp F12   ______ ______         ______        ______          &kp LSHIFT ______
-                                                   &kp LSHIFT  ______      ______    ______ ______         ______
-            >;
-        };
-        media_layer {
-            bindings = <
-                ______ &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP ______       ______       ______ ______   &kp UP   ______    ______ &bt BT_CLR
-                ______ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______
-                ______ ______       &kp C_PLAY   &kp C_STOP   &kp C_PAUSE  ______       ______ ______   ______   ______    ______ ______
-                                                 ______       ______       ______       ______ ______   ______
+                ______  &kp Q        &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P            ______ 
+                ______  &A_AA        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &qt_mod          ______
+                ______  &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
+                                                 &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
         };
         mouse_layer {
             bindings = <
-                ______ ______ ______ ______ ______ ______  ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
-                ______ ______ ______ ______ ______ ______  ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
-                ______ ______ ______ ______ ______ ______  ______    ______         ______         ______          ______ ______
-                                     ______ ______ ______  &mkp LCLK &mkp RCLK      &mkp MCLK
+                ______ ______     ______    ______    ______   ______    ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
+                ______ ______     &kp LCTRL &kp LGUI  &kp LALT ______    ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
+                ______ &kp LSHIFT ______    ______    ______   ______    ______    ______         ______         ______          ______ ______
+                                            ______    ______   ______    &mkp LCLK &mkp RCLK      &mkp MCLK
+            >;
+        };
+        symbol_layer {
+            bindings = <
+                ______ ______ ______ ______ ______ ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
+                ______ ______ ______ ______ ______ ______   &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
+                ______ ______ ______ ______ ______ ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
+                                     ______ ______ ______   &kp LBRC     &kp RBRC &kp PIPE
+            >;
+        };
+        navigation_layer {
+            bindings = <
+                ______ ______ ______ ______ ______ ______   &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP ______  ______ 
+                ______ ______ ______ ______ ______ ______   &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END ______
+                ______ ______ ______ ______ ______ ______   ______      &kp BACKSPACE ______   &kp DEL   ______  ______ 
+                                     ______ ______ ______   ______      ______        ______ 
+            >;
+        };
+        function_layer {
+            bindings = <
+                ______ &kp CAPSLOCK   &kp F1 &kp F2 &kp F3 &kp F10 ______ ______   ______   ______    ______     ______ 
+                ______ &kp KP_NUMLOCK &kp F4 &kp F5 &kp F6 &kp F11 ______ &kp LALT &kp LGUI &kp LCTRL ______     ______
+                ______ &kp PSCRN      &kp F7 &kp F8 &kp F9 &kp F12 ______ ______   ______   ______    &kp LSHIFT ______
+                                             ______ ______ ______  ______ ______   ______
+            >;
+        };
+        numeric_layer {
+            bindings = <
+                ______ &kp FSLH           &kp N1        &kp N2      &kp N3      &kp MINUS ______ ______        &kp UP         ______          ______     ______
+                ______ &kp STAR           &hm LCTRL N4  &hm LGUI N5 &hm LALT N6 &kp PLUS  ______ &hm LALT LEFT &hm LGUI DOWN  &hm LCTRL RIGHT ______     ______
+                ______ &hm LSHIFT PERCENT &kp N7        &kp N8      &kp N9      &kp EQUAL ______ ______        ______         ______          &kp LSHIFT ______
+                                                        &kp N0      &comma_mod  &dot_mod  ______ ______        ______
             >;
         }; 
+        system_layer {
+            bindings = <
+                ______ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to DEFAULT         ______ ______ ______ ______ ______ ______
+                ______ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &to DEFAULT_GAMING  ______ ______ ______ ______ ______ ______
+                ______ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   ______       ______              ______ ______ ______ ______ ______ ______
+                                                 &kp C_PLAY   &kp C_STOP   &kp C_PAUSE         ______ ______ ______
+            >;
+        };
         gaming_default_layer {
             bindings = <
-                &kp ESC     &kp Q  &kp W   &kp E    &kp R                    &kp T                     ______ ______   &kp UP   ______    ______ ______
-                &kp LSHIFT  &kp A  &kp S   &kp D    &kp F                    &kp G                     ______ &kp LEFT &kp DOWN &kp RIGHT ______ ______ 
-                &kp LCTRL   &kp Z  &kp X   &kp C    &kp V                    &kp B                     ______ ______   ______   ______    ______ &to DEFAULT_MAC
-                                          &kp TAB   &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______   ______
+                ______ &kp Q  &kp W   &kp E      &kp R                    &kp T                     ______ ______ ______ ______ ______ ______
+                ______ &kp A  &kp S   &kp D      &kp F                    &kp G                     ______ ______ ______ ______ ______ ______ 
+                ______ &kp Z  &kp X   &kp C      &kp V                    &kp B                     ______ ______ ______ ______ ______ &to DEFAULT 
+                                      &kp LSHIFT &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______ ______
             >;
         };
         gaming_numeric_layer {
             bindings = <
-                &kp ESC     ______ &kp N1  &kp N2 &kp N3 ______ ______ ______ ______ ______ ______ ______
-                &kp LSHIFT  ______ &kp N4  &kp N5 &kp N6 ______ ______ ______ ______ ______ ______ ______
-                &kp LCTRL   ______ &kp N7  &kp N8 &kp N9 ______ ______ ______ ______ ______ ______ ______
-                                           ______ ______ ______ ______ ______ ______
+                ______ &kp ESC   &kp N1  &kp N2     &kp N3 ______ ______ ______ ______ ______ ______ ______
+                ______ &kp TAB   &kp N4  &kp N5     &kp N6 ______ ______ ______ ______ ______ ______ ______
+                ______ &kp LCTRL &kp N7  &kp N8     &kp N9 ______ ______ ______ ______ ______ ______ ______
+                                          &kp LSHIFT ______ ______ ______ ______ ______
             >;
         };
         gaming_function_layer {
             bindings = <
-                &kp ESC     ______ &kp F1  &kp F2 &kp F3 ______ ______ ______ ______ ______ ______ ______
-                &kp LSHIFT  ______ &kp F4  &kp F5 &kp F6 ______ ______ ______ ______ ______ ______ ______
-                &kp LCTRL   ______ &kp F7  &kp F8 &kp F9 ______ ______ ______ ______ ______ ______ ______ 
-                                           ______ ______ ______ ______ ______ ______
+                ______ &kp ESC   &kp F1 &kp F2     &kp F3 ______ ______ ______ ______ ______ ______ ______
+                ______ &kp TAB   &kp F4 &kp F5     &kp F6 ______ ______ ______ ______ ______ ______ ______
+                ______ &kp LCTRL &kp F7 &kp F8     &kp F9 ______ ______ ______ ______ ______ ______ ______ 
+                                         &kp LSHIFT ______ ______ ______ ______ ______
             >;
         };
     };
