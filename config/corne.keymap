@@ -19,15 +19,21 @@
 #define __ &trans
 
 #define DEFAULT 0
-#define MOUSE 1
-#define SYMBOL 2
-#define NAVIGATION 3
-#define FUNCTION 4
+#define LEFT_HRM 1
+#define RIGHT_HRM 2
+#define SYMBOL 3
+#define NAVIGATION 4
 #define NUMERIC 5
-#define SYSTEM 6
-#define DEFAULT_GAMING 7
-#define GAMING_NUMERIC 8
-#define GAMING_FUNCTION 9
+#define FUNCTION 6
+#define MOUSE 7
+#define SYSTEM 8
+
+#define t1 &lt SYMBOL ESC
+#define t2 &mo LEFT_HRM
+#define t3 &lt NAVIGATION SPACE
+#define t4 &lt NUMERIC RET
+#define t5 &mo RIGTH_HRM
+#define t6 &lt FUNCTION TAB
 
 &mmv {
    time-to-max-speed-ms = <450>;
@@ -48,13 +54,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&kp COMMA>, <&kp SEMI>;
         };
-        comma_qmark_mod: comma_alt_mod {
+        cqm: comma_alt_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
             bindings = <&comma_mod>, <&kp QMARK>;
         };
-        dot_exclamation_mod: dot_exclamation_mod {
+        dem: dot_exclamation_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
@@ -78,13 +84,13 @@
                 = <&macro_tap &kp DQT>
                 , <&macro_tap &kp SPACE>;
         };
-        qt_mod: qt_mod {
+        qtm: qt_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&sqt_macro>, <&dqt_macro>;
         };
-        caret_macro: caret_macro {
+        cam: caret_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -93,7 +99,7 @@
                 = <&macro_tap &kp CARET>
                 , <&macro_tap &kp SPACE>;
         };
-        tilde_macro: tilde_macro {
+        tim: tilde_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -150,14 +156,6 @@
             mods = <(MOD_LALT)>;
             bindings = <&kp O>, <&no_oe>;
         }; 
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
         lthp: layer_tap_hold_preferred {
           compatible = "zmk,behavior-hold-tap";
           #binding-cells = <2>;
@@ -171,82 +169,74 @@
         compatible = "zmk,keymap"; 
         default_layer {
             bindings = <
-                __  &kp Q        &kp W  &E_AE &kp R &kp T &kp Y            &kp U            &kp I                &O_OE     &kp P    __ 
-                __  &A_AA        &kp S  &kp D &kp F &kp G &kp H            &kp J            &kp K                &kp L     &qt_mod  __
-                __  &kp Z &kp X  &kp C  &kp V &kp B &kp N &kp M            &comma_qmark_mod &dot_exclamation_mod &kp MINUS __
-                                     &lt MOUSE ESC &lthp SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lthp NUMERIC BACKSPACE  &lt SYSTEM DEL
+                __  &kp Q  &kp W  &E_AE  &kp R  &kp T  &kp Y  &kp U  &kp I &O_OE  &kp P     __ 
+                __  &A_AA  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K &kp L  &qtm      __
+                __  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &cqm  &dem   &kp MINUS __
+                                  &t1    &t2    &t3    &t4    &t5    &t6
             >;
         };
-        mouse_layer {
+        left_hmr_layer {
             bindings = <
-                __ __     __    __    __   __    __    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    __ __
-                __ &sk LSHIFT &sk LCTRL &sk LGUI  &sk LALT __    __    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT __ __
-                __ __    __    __   __    __    __         __         __          __ __
-                                            __    __   __    &mkp LCLK &mkp RCLK      &mkp MCLK
+                __  __          __         __        __        __  __  __  __  __  __  __
+                __  &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  __  __  __  __  __  __
+                __  __          __         __        __        __  __  __  __  __  __  __
+                                           __        __        __  __  __  __
+            >;
+        };
+        right_hmr_layer {
+            bindings = <
+                __  __  __  __  __  __  __  __       __       __        __          __
+                __  __  __  __  __  __  __  &sk LALT &sk LGUI &sk LCTRL &sk LSHIFT  __
+                __  __  __  __  __  __  __  __  __  __  __  __
+                            __  __  __  __  __  __
             >;
         };
         symbol_layer {
             bindings = <
-                __ __ __ __ __ __   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     __ 
-                __ &sk LSHIFT &sk LCTRL &sk LGUI  &sk LALT __   &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR    __   
-                __ __ __ __ __ __   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro __
-                                     __ __ __   &kp LBRC     &kp RBRC &kp PIPE
+                __ __          __         __        __        __  &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     __ 
+                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR     __   
+                __ __          __         __        __        __  &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro __
+                                          __        __        __  &kp LBRC     &kp RBRC &kp PIPE
             >;
         };
         navigation_layer {
             bindings = <
-                __ __ __ __ __ __   &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP __  __ 
-                __ &sk LSHIFT &sk LCTRL &sk LGUI  &sk LALT  __  &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END __
-                __ __ __ __ __ __   __      &kp BACKSPACE __   &kp DEL   __  __ 
-                                     __ __ __   __      __        __ 
-            >;
-        };
-        function_layer {
-            bindings = <
-                __ &kp CAPSLOCK   &kp F1 &kp F2 &kp F3 &kp F10 __ __   __   __    __     __ 
-                __ &kp KP_NUMLOCK &kp F4 &kp F5 &kp F6 &kp F11 __ &sk LALT &sk LGUI &sk LCTRL &sk LSHIFT     __
-                __ &kp PSCRN      &kp F7 &kp F8 &kp F9 &kp F12 __ __   __   __    __ __
-                                             __ __ __  __ __   __
+                __ __          __         __        __        __  &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP __      __ 
+                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END __
+                __ __          __         __        __        __  __          &kp BACKSPACE __       &kp DEL   __     __ 
+                                          __        __        __  &mo MOUSE   __     __ 
             >;
         };
         numeric_layer {
             bindings = <
-                __ &kp FSLH           &kp N1        &kp N2      &kp N3      &kp MINUS __ __        __         __          __     __
-                __ &kp STAR           &kp N4        &kp N5      &kp N6       &kp PLUS  __ &sk LALT  &sk LGUI  &sk LCTRL &sk LSHIFT __
-                __ &hm LSHIFT PERCENT &kp N7        &kp N8      &kp N9      &kp EQUAL __ __        __         __          __ __
-                                                        &kp N0      &comma_mod  &dot_mod  __ __        __
+                __ &kp FSLH     &kp N1  &kp N2  &kp N3      &kp MINUS __ __        __         __        __         __
+                __ &kp STAR     &kp N4  &kp N5  &kp N6      &kp PLUS  __ &sk LALT  &sk LGUI  &sk LCTRL  &sk LSHIFT __
+                __ &kp PERCENT  &kp N7  &kp N8  &kp N9      &kp EQUAL __ __        __         __        __         __
+                                        &kp N0  &comma_mod  &dot_mod  __ __        __
             >;
         }; 
+        function_layer {
+            bindings = <
+                __ &kp CAPSLOCK   &kp F1 &kp F2      &kp F3 &kp F10 __ __       __       __        __          __
+                __ &kp KP_NUMLOCK &kp F4 &kp F5      &kp F6 &kp F11 __ &sk LALT &sk LGUI &sk LCTRL &sk LSHIFT  __
+                __ &kp PSCRN      &kp F7 &kp F8      &kp F9 &kp F12 __ __       __       __         __         __
+                                         &mo SYSTEM  __     __      __ __       __
+            >;
+        };
         system_layer {
             bindings = <
                 __ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to DEFAULT         __ __ __ __ __ __
                 __ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &to DEFAULT_GAMING  __ __ __ __ __ __
-                __ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   __       __              __ __ __ __ __ __
-                                                 &kp C_PLAY   &kp C_STOP   &kp C_PAUSE         __ __ __
+                __ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   __           __                  __ __ __ __ __ __
+                                             &kp C_PLAY   &kp C_STOP   &kp C_PAUSE         __ __ __
             >;
         };
-        gaming_default_layer {
+        mouse_layer {
             bindings = <
-                __ &kp Q  &kp W   &kp E      &kp R                    &kp T                     __ __ __ __ __ __
-                __ &kp A  &kp S   &kp D      &kp F                    &kp G                     __ __ __ __ __ __ 
-                __ &kp Z  &kp X   &kp C      &kp V                    &kp B                     __ __ __ __ __ &to DEFAULT 
-                                      &kp LSHIFT &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  __ __ __
-            >;
-        };
-        gaming_numeric_layer {
-            bindings = <
-                __ &kp ESC   &kp N1  &kp N2     &kp N3 __ __ __ __ __ __ __
-                __ &kp TAB   &kp N4  &kp N5     &kp N6 __ __ __ __ __ __ __
-                __ &kp LCTRL &kp N7  &kp N8     &kp N9 __ __ __ __ __ __ __
-                                          &kp LSHIFT __ __ __ __ __
-            >;
-        };
-        gaming_function_layer {
-            bindings = <
-                __ &kp ESC   &kp F1 &kp F2     &kp F3 __ __ __ __ __ __ __
-                __ &kp TAB   &kp F4 &kp F5     &kp F6 __ __ __ __ __ __ __
-                __ &kp LCTRL &kp F7 &kp F8     &kp F9 __ __ __ __ __ __ __ 
-                                         &kp LSHIFT __ __ __ __ __
+                __ __          __         __        __        __  __         &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP     __  __
+                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  __         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  __  __
+                __ __          __         __        __        __  __         &mkp LCLK      &mkp RCLK      &mkp MCLK        __  __
+                                          __        __        __  __         __             __             __
             >;
         };
     };
