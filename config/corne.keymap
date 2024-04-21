@@ -25,9 +25,6 @@
 #define FUNCTION 4
 #define NUMERIC 5
 #define SYSTEM 6
-#define DEFAULT_GAMING 7
-#define GAMING_NUMERIC 8
-#define GAMING_FUNCTION 9
 
 &mmv {
    time-to-max-speed-ms = <450>;
@@ -227,34 +224,10 @@
         }; 
         system_layer {
             bindings = <
-                ______ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to DEFAULT         ______ ______ ______ ______ ______ ______
-                ______ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &to DEFAULT_GAMING  ______ ______ ______ ______ ______ ______
+                ______ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 ______              ______ ______ ______ ______ ______ ______
+                ______ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   ______              ______ ______ ______ ______ ______ ______
                 ______ &kp C_MUTE   &kp C_PREV   &kp C_NEXT   ______       ______              ______ ______ ______ ______ ______ ______
                                                  &kp C_PLAY   &kp C_STOP   &kp C_PAUSE         ______ ______ ______
-            >;
-        };
-        gaming_default_layer {
-            bindings = <
-                ______ &kp Q  &kp W   &kp E      &kp R                    &kp T                     ______ ______ ______ ______ ______ ______
-                ______ &kp A  &kp S   &kp D      &kp F                    &kp G                     ______ ______ ______ ______ ______ ______ 
-                ______ &kp Z  &kp X   &kp C      &kp V                    &kp B                     ______ ______ ______ ______ ______ &to DEFAULT 
-                                      &kp LSHIFT &lt GAMING_FUNCTION RET  &lt GAMING_NUMERIC SPACE  ______ ______ ______
-            >;
-        };
-        gaming_numeric_layer {
-            bindings = <
-                ______ &kp ESC   &kp N1  &kp N2     &kp N3 ______ ______ ______ ______ ______ ______ ______
-                ______ &kp TAB   &kp N4  &kp N5     &kp N6 ______ ______ ______ ______ ______ ______ ______
-                ______ &kp LCTRL &kp N7  &kp N8     &kp N9 ______ ______ ______ ______ ______ ______ ______
-                                          &kp LSHIFT ______ ______ ______ ______ ______
-            >;
-        };
-        gaming_function_layer {
-            bindings = <
-                ______ &kp ESC   &kp F1 &kp F2     &kp F3 ______ ______ ______ ______ ______ ______ ______
-                ______ &kp TAB   &kp F4 &kp F5     &kp F6 ______ ______ ______ ______ ______ ______ ______
-                ______ &kp LCTRL &kp F7 &kp F8     &kp F9 ______ ______ ______ ______ ______ ______ ______ 
-                                         &kp LSHIFT ______ ______ ______ ______ ______
             >;
         };
     };
