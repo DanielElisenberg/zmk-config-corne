@@ -153,59 +153,67 @@
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        }; 
+        };
+        hm_qt: homerow_mod_qt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&qt_mod>;
+        };
     };
     keymap {
         compatible = "zmk,keymap"; 
         default_layer {
             bindings = <
-                ______  &kp Q        &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P            ______ 
-                ______  &A_AA        &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &qt_mod          ______
-                ______  &hm LSHIFT Z &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &hm LSHIFT MINUS ______
-                                                 &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
+                ______  &kp Q           &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P         ______ 
+                ______  &hm LSHIFT A_AA &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt LSHIFT ______
+                ______  &kp Z           &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &kpMINUS      ______
+                                                    &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
         };
         mouse_layer {
             bindings = <
                 ______ ______     ______    ______    ______   ______    ______    &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP    ______ ______
-                ______ ______     &kp LCTRL &kp LGUI  &kp LALT ______    ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
-                ______ &kp LSHIFT ______    ______    ______   ______    ______    ______         ______         ______          ______ ______
+                ______ &kp LSHIFT &kp LCTRL &kp LGUI  &kp LALT ______    ______    &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ______ ______
+                ______ ______     ______    ______    ______   ______    ______    ______         ______         ______          ______ ______
                                             ______    ______   ______    &mkp LCLK &mkp RCLK      &mkp MCLK
             >;
         };
         symbol_layer {
             bindings = <
-                ______ ______ ______ ______ ______ ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
-                ______ ______ ______ ______ ______ ______   &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
-                ______ ______ ______ ______ ______ ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
-                                     ______ ______ ______   &kp LBRC     &kp RBRC &kp PIPE
+                ______ ______     ______    ______    ______   ______   &caret_macro &kp LPAR &kp RPAR &kp GRAVE &kp BSLH     ______ 
+                ______ &kp LSHIFT &kp LCTRL &kp LGUI  &kp LALT ______   &kp UNDER    &kp LBKT &kp RBKT &kp AT    &kp DLLR    ______   
+                ______ ______     ______    ______    ______   ______   &kp AMPS     &kp LT   &kp GT   &kp HASH  &tilde_macro ______
+                                            ______    ______   ______   &kp LBRC     &kp RBRC &kp PIPE
             >;
         };
         navigation_layer {
             bindings = <
-                ______ ______ ______ ______ ______ ______   &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP ______  ______ 
-                ______ ______ ______ ______ ______ ______   &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END ______
-                ______ ______ ______ ______ ______ ______   ______      &kp BACKSPACE ______   &kp DEL   ______  ______ 
+                ______ ______     ______    ______    ______   ______   &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP ______  ______ 
+                ______ &kp LSHIFT &kp LCTRL &kp LGUI  &kp LALT ______   &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END ______
+                ______ ______     ______    ______    ______   ______   ______      &kp BACKSPACE ______   &kp DEL   ______  ______ 
                                      ______ ______ ______   ______      ______        ______ 
             >;
         };
         function_layer {
             bindings = <
                 ______ &kp CAPSLOCK   &kp F1 &kp F2 &kp F3 &kp F10 ______ ______   ______   ______    ______     ______ 
-                ______ &kp KP_NUMLOCK &kp F4 &kp F5 &kp F6 &kp F11 ______ &kp LALT &kp LGUI &kp LCTRL ______     ______
-                ______ &kp PSCRN      &kp F7 &kp F8 &kp F9 &kp F12 ______ ______   ______   ______    &kp LSHIFT ______
+                ______ &kp KP_NUMLOCK &kp F4 &kp F5 &kp F6 &kp F11 ______ &kp LALT &kp LGUI &kp LCTRL &kp LSHIFT ______
+                ______ &kp PSCRN      &kp F7 &kp F8 &kp F9 &kp F12 ______ ______   ______   ______    ______     ______
                                              ______ ______ ______  ______ ______   ______
             >;
         };
         numeric_layer {
             bindings = <
                 ______ &kp FSLH           &kp N1        &kp N2      &kp N3      &kp MINUS ______ ______        &kp UP         ______          ______     ______
-                ______ &kp STAR           &hm LCTRL N4  &hm LGUI N5 &hm LALT N6 &kp PLUS  ______ &hm LALT LEFT &hm LGUI DOWN  &hm LCTRL RIGHT ______     ______
-                ______ &hm LSHIFT PERCENT &kp N7        &kp N8      &kp N9      &kp EQUAL ______ ______        ______         ______          &kp LSHIFT ______
+                ______ &kp STAR           &hm LCTRL N4  &hm LGUI N5 &hm LALT N6 &kp PLUS  ______ &hm LALT LEFT &hm LGUI DOWN  &hm LCTRL RIGHT &kp LSHIFT ______
+                ______ &hm LSHIFT PERCENT &kp N7        &kp N8      &kp N9      &kp EQUAL ______ ______        ______         ______          ______     ______
                                                         &kp N0      &comma_mod  &dot_mod  ______ ______        ______
             >;
         }; 
