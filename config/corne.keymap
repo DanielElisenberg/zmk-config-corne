@@ -157,7 +157,7 @@
         };
         hm_aa: homerow_mods_aa {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
@@ -165,7 +165,7 @@
         };
         hm_qt: homerow_mod_qt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
