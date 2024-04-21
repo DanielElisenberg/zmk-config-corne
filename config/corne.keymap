@@ -29,10 +29,10 @@
 #define SYSTEM 8
 
 #define t1 &lt SYMBOL ESC
-#define t2 &mo LEFT_HRM
-#define t3 &lt NAVIGATION SPACE
-#define t4 &lt NUMERIC RET
-#define t5 &mo RIGHT_HRM
+#define t2 &lt NAVIGATION SPACE 
+#define t3 &mo LEFT_HRM
+#define t4 &mo RIGHT_HRM
+#define t5 &lt NUMERIC RET
 #define t6 &lt FUNCTION TAB
 
 &mmv {
