@@ -157,19 +157,19 @@
         };
         hm_aa: homerow_mods_aa {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&A_AA>;
+            bindings = <&kp LSHIFT>, <&A_AA>;
         };
         hm_qt: homerow_mod_qt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&qt_mod>;
+            bindings = <&kp LSHIFT>, <&qt_mod>;
         };
     };
     keymap {
@@ -177,7 +177,7 @@
         default_layer {
             bindings = <
                 ______  &kp Q   &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P     ______ 
-                ______  &hm_aa LSHIFT  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt LSHIFT    ______
+                ______  &hm_aa  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt    ______
                 ______  &kp Z   &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &kp MINUS ______
                                                     &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
