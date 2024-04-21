@@ -170,7 +170,7 @@
         left_hmr_layer {
             bindings = <
                 __  __          __         __        __        __  __  __  __  __  __  __
-                __  &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  __  __  __  __  __  __
+                __  &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  __  __  __  __  __  __
                 __  __          __         __        __        __  __  __  __  __  __  __
                                            __        __        __  __  __  __
             >;
@@ -178,7 +178,7 @@
         right_hmr_layer {
             bindings = <
                 __  __  __  __  __  __  __  __       __       __        __          __
-                __  __  __  __  __  __  __  &sk LALT &sk LGUI &sk LCTRL &sk LSHIFT  __
+                __  __  __  __  __  __  __  &kp LALT &kp LGUI &kp LCTRL &kp LSHIFT  __
                 __  __  __  __  __  __  __  __  __  __  __  __
                             __  __  __  __  __  __
             >;
@@ -186,7 +186,7 @@
         symbol_layer {
             bindings = <
                 __ __          __         __        __        __  &cam       &kp LPAR &kp RPAR &kp GRAVE &kp BSLH __
-                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp UNDER  &kp LBKT &kp RBKT &kp AT    &kp DLLR __
+                __ &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  &kp UNDER  &kp LBKT &kp RBKT &kp AT    &kp DLLR __
                 __ __          __         __        __        __  &kp AMPS   &kp LT   &kp GT   &kp HASH  &tim     __
                                           __        __        __  &kp LBRC   &kp RBRC &kp PIPE
             >;
@@ -194,7 +194,7 @@
         navigation_layer {
             bindings = <
                 __ __          __         __        __        __  &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP __      __ 
-                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END __
+                __ &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END __
                 __ __          __         __        __        __  __          &kp BACKSPACE __       &kp DEL   __     __ 
                                           __        __        __  &mo MOUSE   __     __ 
             >;
@@ -202,7 +202,7 @@
         numeric_layer {
             bindings = <
                 __ &kp FSLH     &kp N1  &kp N2  &kp N3      &kp MINUS __ __        __         __        __         __
-                __ &kp STAR     &kp N4  &kp N5  &kp N6      &kp PLUS  __ &sk LALT  &sk LGUI  &sk LCTRL  &sk LSHIFT __
+                __ &kp STAR     &kp N4  &kp N5  &kp N6      &kp PLUS  __ &kp LALT  &kp LGUI  &kp LCTRL  &kp LSHIFT __
                 __ &kp PERCENT  &kp N7  &kp N8  &kp N9      &kp EQUAL __ __        __         __        __         __
                                         &kp N0  &comma_mod  &dot_mod  __ __        __
             >;
@@ -210,7 +210,7 @@
         function_layer {
             bindings = <
                 __ &kp CAPSLOCK   &kp F1 &kp F2      &kp F3 &kp F10 __ __       __       __        __          __
-                __ &kp KP_NUMLOCK &kp F4 &kp F5      &kp F6 &kp F11 __ &sk LALT &sk LGUI &sk LCTRL &sk LSHIFT  __
+                __ &kp KP_NUMLOCK &kp F4 &kp F5      &kp F6 &kp F11 __ &kp LALT &kp LGUI &kp LCTRL &kp LSHIFT  __
                 __ &kp PSCRN      &kp F7 &kp F8      &kp F9 &kp F12 __ __       __       __         __         __
                                          &mo SYSTEM  __     __      __ __       __
             >;
@@ -218,7 +218,7 @@
         mouse_layer {
             bindings = <
                 __ __          __         __        __        __  __         &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP     __  __
-                __ &sk LSHIFT  &sk LCTRL  &sk LGUI  &sk LALT  __  __         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  __  __
+                __ &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  __         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  __  __
                 __ __          __         __        __        __  __         &mkp LCLK      &mkp RCLK      &mkp MCLK        __  __
                                           __        __        __  __         __             __             __
             >;
