@@ -164,7 +164,7 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&A_AA>, <&kp LSHIFT>;
+            bindings = <&kp>, <&A_AA>;
         };
         hm_qt: homerow_mod_qt {
             compatible = "zmk,behavior-hold-tap";
@@ -172,7 +172,7 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&qt_mod>, <&kp LSHIFT>;
+            bindings = <&kp>, <&qt_mod>;
         };
     };
     keymap {
@@ -180,7 +180,7 @@
         default_layer {
             bindings = <
                 ______  &kp Q   &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P     ______ 
-                ______  &hm_aa  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt    ______
+                ______  &hm_aa LSHIFT  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt LSHIFT    ______
                 ______  &kp Z   &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &kp MINUS ______
                                                     &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
             >;
