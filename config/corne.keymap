@@ -158,7 +158,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        hm_aa: homerow_mods {
+        hm_aa: homerow_mods_aa {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <180>;
