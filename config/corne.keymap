@@ -177,7 +177,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp LSHIFT>, <&to MOUSE>;
         };
-        td_alt: tap_dance_ølat {
+        td_alt: tap_dance_alt {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
