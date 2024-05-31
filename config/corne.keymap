@@ -171,15 +171,27 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&qt_mod>;
         };
+        td_shift: tap_dance_shift {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHIFT>, <&to MOUSE>;
+        };
+        td_alt: tap_dance_ølat {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LALT>, <&to SYSTEM>;
+        };
     };
     keymap {
         compatible = "zmk,keymap"; 
         default_layer {
             bindings = <
-                ______  &kp Q   &kp W       &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P     ______ 
+                ______  &kp Q   &kp W    &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P     ______ 
                 ______  &hm_aa LSHIFT 0  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt LSHIFT 0   ______
                 ______  &kp Z   &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &kp MINUS ______
-                                                    &lt MOUSE ESC &lt SYMBOL TAB  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC BACKSPACE  &lt SYSTEM DEL
+                                                    &td_shift &lt SYMBOL ESC  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC TAB  &td_alt
             >;
         };
         mouse_layer {
