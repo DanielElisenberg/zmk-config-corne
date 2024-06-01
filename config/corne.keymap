@@ -175,13 +175,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LSHIFT>, <&to MOUSE>;
+            bindings = <&kp LSHIFT>, <&mo MOUSE>;
         };
         td_alt: tap_dance_alt {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LALT>, <&to SYSTEM>;
+            bindings = <&kp LALT>, <&mo SYSTEM>;
         };
     };
     keymap {
@@ -191,7 +191,7 @@
                 ______  &kp Q   &kp W    &E_AE         &kp R           &kp T                 &kp Y            &kp U            &kp I                  &O_OE                &kp P     ______ 
                 ______  &hm_aa LSHIFT 0  &hm LCTRL S &hm LGUI D    &hm LALT F      &kp G                 &kp H            &hm LALT J       &hm LGUI K             &hm LCTRL L          &hm_qt LSHIFT 0   ______
                 ______  &kp Z   &kp X       &kp C         &kp V           &kp B                 &kp N            &kp M            &comma_qmark_mod       &dot_exclamation_mod &kp MINUS ______
-                                                    &td_shift &lt SYMBOL ESC  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC TAB  &td_alt
+                                                    &td_alt &lt SYMBOL ESC  &lt NAVIGATION SPACE  &lt FUNCTION RET &lt NUMERIC TAB  &td_shift
             >;
         };
         mouse_layer {
