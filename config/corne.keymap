@@ -28,12 +28,12 @@
 #define MOUSE 7
 #define SYSTEM 8
 
-#define t1 &mo LEFT_HRM
+#define t1 &tdl
 #define t2 &lt SYMBOL ESC
 #define t3 &lt NAVIGATION SPACE 
 #define t4 &lt NUMERIC RET
 #define t5 &lt FUNCTION TAB
-#define t6 &mo RIGHT_HRM
+#define t6 &tdr
 
 &mmv {
    time-to-max-speed-ms = <450>;
@@ -156,6 +156,18 @@
             mods = <(MOD_LALT)>;
             bindings = <&kp O>, <&no_oe>;
         }; 
+        tdl: tap_dance_left {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo LEFT_HRM>, <&mo SYSTEM>;
+        };
+        tdr: tap_dance_right {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RIGHT_HMR>, <&mo MOUSE>;
+        };
     };
     keymap {
         compatible = "zmk,keymap"; 
