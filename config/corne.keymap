@@ -166,7 +166,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RIGHT_HMR>, <&mo MOUSE>;
+            bindings = <&kp RIGHT_HRM>, <&mo MOUSE>;
         };
     };
     keymap {
