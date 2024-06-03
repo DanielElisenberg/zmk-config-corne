@@ -208,7 +208,7 @@
                 __ __          __         __        __        __  &kp INSERT  &kp PG_DN     &kp UP   &kp PG_UP __      __ 
                 __ &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  &kp HOME    &kp LEFT      &kp DOWN &kp RIGHT &kp END __
                 __ __          __         __        __        __  __          &kp BACKSPACE __       &kp DEL   __     __ 
-                                          __        __        __  &mo MOUSE   __     __ 
+                                          __        __        __  __          __     __ 
             >;
         };
         numeric_layer {
@@ -224,15 +224,15 @@
                 __ &kp CAPSLOCK   &kp F1 &kp F2      &kp F3 &kp F10 __ __       __       __        __          __
                 __ &kp KP_NUMLOCK &kp F4 &kp F5      &kp F6 &kp F11 __ &kp LALT &kp LGUI &kp LCTRL &kp LSHIFT  __
                 __ &kp PSCRN      &kp F7 &kp F8      &kp F9 &kp F12 __ __       __       __         __         __
-                                         &mo SYSTEM  __     __      __ __       __
+                                         __          __     __      __ __       __
             >;
         };
         mouse_layer {
             bindings = <
                 __ __          __         __        __        __  __         &msc SCRL_DOWN &mmv MOVE_UP   &msc SCRL_UP     __  __
                 __ &kp LSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  __  __         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  __  __
-                __ __          __         __        __        __  __         &mkp LCLK      &mkp RCLK      &mkp MCLK        __  __
-                                          __        __        __  __         __             __             __
+                __ __          __         __        __        __  __         __             __             __               __  __
+                                          __        __        __  &mkp LCLK  &mkp RCLK      &mkp MCLK
             >;
         };
         system_layer {
