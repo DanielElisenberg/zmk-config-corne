@@ -160,13 +160,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo LEFT_HRM>, <&mo SYSTEM>;
+            bindings = <&mo LEFT_HRM>, <&mo MOUSE>;
         };
         tdr: tap_dance_right {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo RIGHT_HRM>, <&mo MOUSE>;
+            bindings = <&mo RIGHT_HRM>, <&mo SYSTEM>;
         };
     };
     keymap {
