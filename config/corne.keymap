@@ -310,7 +310,7 @@
             bindings = <
                 __  &kp Q        &kp W  &linux_E_AE &kp R  &kp T  &kp Y  &kp U  &kp I       &linux_O_OE  &kp P      __ 
                 __  &linux_A_AA  &kp S  &kp D       &kp F  &kp G  &kp H  &kp J  &kp K       &kp L        &linux_qtm __
-                __  &kp Z        &kp X  &kp C       &kp V  &kp B  &kp N  &kp M  &linux_cqm  &linuz_dem   &kp MINUS  __
+                __  &kp Z        &kp X  &kp C       &kp V  &kp B  &kp N  &kp M  &linux_cqm  &linux_dem   &kp MINUS  __
                                         lt1         lt2    lt3    lt4    lt5    lt6
             >;
         };
