@@ -121,7 +121,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
-            bindings = <&mac_qt_mod>, <&kp GRAVE>;
+            bindings = <&mac_qtm>, <&kp GRAVE>;
         };
         mac_dash: mac_dash {
             compatible = "zmk,behavior-mod-morph";
