@@ -428,7 +428,7 @@
         };
         mac_system_layer {
             bindings = <
-                __ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to MAC_DEFAUT    __ __ __ __ __ __
+                __ &kp C_VOL_UP &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &to MAC_DEFAULT   __ __ __ __ __ __
                 __ &kp C_VOL_DN &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR   &to LINUX_DEFAULT __ __ __ __ __ __
                 __ &kp C_MUTE   &kp C_STOP   &kp C_PAUSE  &kp C_REC    __                __ __ __ __ __ __
                                              &kp C_PREV   &kp C_PLAY   &kp C_NEXT        __ __ __
