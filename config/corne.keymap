@@ -108,15 +108,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
             bindings = <&mac_sqt_macro>, <&mac_dqt_macro>;
         };
-        mac_cam: mac_caret_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_tap &kp CARET>
-                , <&macro_tap &kp SPACE>;
-        };
         mac_tim: mac_tilde_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -124,6 +115,27 @@
             tap-ms = <U_TAP_MS>;
             bindings
                 = <&macro_tap &kp TILDE>
+                , <&macro_tap &kp SPACE>;
+        };
+        mac_qtm2: mac_qt_mod_2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&mac_qt_mod>, <&kp GRAVE>;
+        };
+        mac_dash: mac_dash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&kp MINUS>, <&mac_tim>;
+        };
+        mac_cam: mac_caret_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp CARET>
                 , <&macro_tap &kp SPACE>;
         };
         mac_no_aa: mac_no_aa {
@@ -301,8 +313,8 @@
         mac_default_layer {
             bindings = <
                 __  &kp Q      &kp W  &mac_E_AE &kp R  &kp T  &kp Y  &kp U  &kp I     &mac_O_OE  &kp P     __ 
-                __  &mac_A_AA  &kp S  &kp D     &kp F  &kp G  &kp H  &kp J  &kp K     &kp L      &mac_qtm __
-                __  &kp Z      &kp X  &kp C     &kp V  &kp B  &kp N  &kp M  &mac_cqm  &mac_dem   &kp MINUS __
+                __  &mac_A_AA  &kp S  &kp D     &kp F  &kp G  &kp H  &kp J  &kp K     &kp L      &mac_qtm2 __
+                __  &kp Z      &kp X  &kp C     &kp V  &kp B  &kp N  &kp M  &mac_cqm  &mac_dem   &mac_dash __
                                   mt1    mt2    mt3    mt4    mt5    mt6
             >;
         };
