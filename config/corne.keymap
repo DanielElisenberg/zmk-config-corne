@@ -232,7 +232,7 @@
             mods = <(MOD_LALT|MOD_RALT)>;
             bindings = <&linux_dot_mod>, <&kp EXCLAMATION>;
         };
-        linux_sqt_macro: mac_sqt_macro { 
+        linux_sqt_macro: linux_sqt_macro { 
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
