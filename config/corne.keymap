@@ -295,15 +295,6 @@
                 = <&macro_tap &kp CARET>
                 , <&macro_tap &kp SPACE>;
         };
-        linux_tim: linux_tilde_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <U_WAIT_MS>;
-            tap-ms = <U_TAP_MS>;
-            bindings
-                = <&macro_tap &kp TILDE>
-                , <&macro_tap &kp SPACE>;
-        };
         linux_no_aa: linux_no_aa {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
