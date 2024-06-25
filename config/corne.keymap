@@ -117,11 +117,20 @@
                 = <&macro_tap &kp TILDE>
                 , <&macro_tap &kp SPACE>;
         };
-        mac_qtm2: mac_qt_mod_2 {
+        mac_grave: mac_tilde_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp GRAVE>
+                , <&macro_tap &kp SPACE>;
+        };
+        mac_quotes: mac_qt_grave_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
-            bindings = <&mac_qtm>, <&kp GRAVE>;
+            bindings = <&mac_qtm>, <&mac_grave>;
         };
         mac_dash: mac_dash {
             compatible = "zmk,behavior-mod-morph";
@@ -222,12 +231,60 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
             bindings = <&linux_dot_mod>, <&kp EXCLAMATION>;
-        }; 
+        };
+        linux_sqt_macro: mac_sqt_macro { 
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp SQT>
+                , <&macro_tap &kp SPACE>;
+        };
+        linux_dqt_macro: linux_dqt_macro { 
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp DQT>
+                , <&macro_tap &kp SPACE>;
+        };
         linux_qtm: linux_qt_mod {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            bindings = <&kp SQT>, <&kp DQT>;
+            bindings = <&linux_sqt_macro>, <&linux_dqt_macro>;
+        };
+        linux_tim: linux_tilde_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp TILDE>
+                , <&macro_tap &kp SPACE>;
+        };
+        linux_grave: linux_tilde_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <U_WAIT_MS>;
+            tap-ms = <U_TAP_MS>;
+            bindings
+                = <&macro_tap &kp GRAVE>
+                , <&macro_tap &kp SPACE>;
+        };
+        linux_quotes: linux_qt_grave_mod {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&linux_qtm>, <&linux_grave>;
+        };
+        linux_dash: linux_dash {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <(MOD_LALT)>;
+            bindings = <&kp MINUS>, <&linux_tim>;
         };
         linux_cam: linux_caret_macro {
             compatible = "zmk,behavior-macro";
@@ -313,16 +370,16 @@
         mac_default_layer {
             bindings = <
                 __  &kp Q      &kp W  &mac_E_AE &kp R  &kp T  &kp Y  &kp U  &kp I     &mac_O_OE  &kp P     __ 
-                __  &mac_A_AA  &kp S  &kp D     &kp F  &kp G  &kp H  &kp J  &kp K     &kp L      &mac_qtm2 __
+                __  &mac_A_AA  &kp S  &kp D     &kp F  &kp G  &kp H  &kp J  &kp K     &kp L      &mac_quotes __
                 __  &kp Z      &kp X  &kp C     &kp V  &kp B  &kp N  &kp M  &mac_cqm  &mac_dem   &mac_dash __
                                   mt1    mt2    mt3    mt4    mt5    mt6
             >;
         };
         linux_default_layer {
             bindings = <
-                __  &kp Q        &kp W  &linux_E_AE &kp R  &kp T  &kp Y  &kp U  &kp I       &linux_O_OE  &kp P      __ 
-                __  &linux_A_AA  &kp S  &kp D       &kp F  &kp G  &kp H  &kp J  &kp K       &kp L        &linux_qtm __
-                __  &kp Z        &kp X  &kp C       &kp V  &kp B  &kp N  &kp M  &linux_cqm  &linux_dem   &kp MINUS  __
+                __  &kp Q        &kp W  &linux_E_AE &kp R  &kp T  &kp Y  &kp U  &kp I       &linux_O_OE  &kp P         __ 
+                __  &linux_A_AA  &kp S  &kp D       &kp F  &kp G  &kp H  &kp J  &kp K       &kp L        &linux_quotes __
+                __  &kp Z        &kp X  &kp C       &kp V  &kp B  &kp N  &kp M  &linux_cqm  &linux_dem   &linux_dash   __
                                         lt1         lt2    lt3    lt4    lt5    lt6
             >;
         };
@@ -368,9 +425,9 @@
         };
         linux_symbol_layer {
             bindings = <
-                __ __         __        __       __       __  &kp LBRC  &kp LPAR &kp RPAR &kp RBRC &kp BSLH  __
-                __ &kp LSHIFT &kp LCTRL &kp LGUI &kp LALT __  &kp UNDER &kp LBKT &kp RBKT &kp AT   &kp DLLR  __
-                __ __         __        __       __       __  &kp AMPS  &kp LT   &kp GT   &kp HASH &kp CARET __
+                __ __         __        __       __       __  &kp LBRC  &kp LPAR &kp RPAR &kp RBRC &kp BSLH   __
+                __ &kp LSHIFT &kp LCTRL &kp LGUI &kp LALT __  &kp UNDER &kp LBKT &kp RBKT &kp AT   &kp DLLR   __
+                __ __         __        __       __       __  &kp AMPS  &kp LT   &kp GT   &kp HASH &linux_cam __
                                         __       __       __  __        __       &kp PIPE
             >;
         };
