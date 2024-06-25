@@ -117,7 +117,7 @@
                 = <&macro_tap &kp TILDE>
                 , <&macro_tap &kp SPACE>;
         };
-        mac_grave: mac_tilde_macro {
+        mac_grave: mac_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
@@ -265,7 +265,7 @@
                 = <&macro_tap &kp TILDE>
                 , <&macro_tap &kp SPACE>;
         };
-        linux_grave: linux_tilde_macro {
+        linux_grave: linux_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <U_WAIT_MS>;
